@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>timeMaster Admin Prototype</title>
+  <link rel="stylesheet" href="./prototype.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="brand">timeMaster Admin</div>
+      <nav class="nav-group">
+        <button class="nav-item active" data-icon="layout-dashboard">运营总览</button>
+        <button class="nav-item" data-icon="inbox">市场需求池</button>
+        <button class="nav-item" data-icon="workflow">流程编排</button>
+        <button class="nav-item" data-icon="radio">AI 调度</button>
+        <button class="nav-item" data-icon="shield-check">质检验收</button>
+        <button class="nav-item" data-icon="user-round-cog">用户成长</button>
+        <button class="nav-item" data-icon="triangle-alert">风控争议</button>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-top">
+        <div class="admin-title">
+          <h1>任务运营控制台</h1>
+          <p>管理市场需求、任务流程、证据验收、成长结算和 AI 接管。</p>
+        </div>
+        <div class="toolbar">
+          <input class="search" placeholder="搜索任务、用户、技能或需求方">
+          <button class="ghost" data-icon="filter">筛选</button>
+          <button class="primary" data-icon="plus">新建任务</button>
+        </div>
+      </header>
+
+      <section class="admin-metrics">
+        <div class="admin-card">
+          <div class="metric-label">待派发任务</div>
+          <div class="metric-value">48</div>
+          <div class="metric-hint">AI 已拆解 36</div>
+        </div>
+        <div class="admin-card">
+          <div class="metric-label">无人接单</div>
+          <div class="metric-value">7</div>
+          <div class="metric-hint">3 个待 AI 接管</div>
+        </div>
+        <div class="admin-card">
+          <div class="metric-label">待验收</div>
+          <div class="metric-value">19</div>
+          <div class="metric-hint">高风险 2</div>
+        </div>
+        <div class="admin-card">
+          <div class="metric-label">今日成长结算</div>
+          <div class="metric-value">126</div>
+          <div class="metric-hint">重复结算 0</div>
+        </div>
+      </section>
+
+      <section class="admin-grid">
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>任务</th>
+                <th>状态</th>
+                <th>流程</th>
+                <th>执行者</th>
+                <th>风险</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="selected" data-task="router">
+                <td><strong>门店路由器网络检查</strong><br><span class="muted">企业门店项目 / ¥120</span></td>
+                <td><span class="pill blue">待验收</span></td>
+                <td><span class="pill">18 启用</span> <span class="pill">4 标灰</span></td>
+                <td>杜川<br><span class="muted">网络维护 S2</span></td>
+                <td><span class="pill amber">关键录像</span></td>
+                <td><button class="secondary table-action" data-task="router" data-icon="file-search">查看</button></td>
+              </tr>
+              <tr data-task="elder">
+                <td><strong>社区老人手机使用辅导</strong><br><span class="muted">公益任务 / 声望 +12</span></td>
+                <td><span class="pill green">执行中</span></td>
+                <td><span class="pill">13 启用</span> <span class="pill">9 标灰</span></td>
+                <td>李师傅<br><span class="muted">服务沟通 S3</span></td>
+                <td><span class="pill green">低风险</span></td>
+                <td><button class="secondary table-action" data-task="elder" data-icon="file-search">查看</button></td>
+              </tr>
+              <tr data-task="data">
+                <td><strong>企业资料整理与表格清洗</strong><br><span class="muted">线上任务 / ¥80</span></td>
+                <td><span class="pill red">无人接单</span></td>
+                <td><span class="pill">12 启用</span> <span class="pill">10 标灰</span></td>
+                <td>待匹配</td>
+                <td><span class="pill">低风险</span></td>
+                <td><button class="secondary table-action" data-task="data" data-icon="bot">AI 接管</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="detail-panel">
+          <div class="row">
+            <div>
+              <h2 id="taskTitle">门店路由器网络检查</h2>
+              <p class="muted" id="taskSub">任务 ID TM-20260529-001，等待后台验收</p>
+            </div>
+            <span class="pill blue" id="taskStatus">待验收</span>
+          </div>
+
+          <div class="drawer-section">
+            <h3 class="section-title">结算与成长</h3>
+            <div class="split">
+              <div class="admin-card">
+                <div class="mini-label">用户到账</div>
+                <div class="mini-value">¥120</div>
+              </div>
+              <div class="admin-card">
+                <div class="mini-label">平台抽成</div>
+                <div class="mini-value">¥0</div>
+              </div>
+              <div class="admin-card">
+                <div class="mini-label">声望变化</div>
+                <div class="mini-value">+8</div>
+              </div>
+              <div class="admin-card">
+                <div class="mini-label">技能变化</div>
+                <div class="mini-value">网络维护 +3</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <h3 class="section-title">流程节点</h3>
+            <div class="workflow" id="adminWorkflow">
+              <div class="node done">
+                <div class="node-index">1</div>
+                <div><div class="node-title">接单确认</div><div class="node-sub">流程和报酬已锁定</div></div>
+                <span class="pill green">完成</span>
+              </div>
+              <div class="node done">
+                <div class="node-index">2</div>
+                <div><div class="node-title">到场确认</div><div class="node-sub">GPS 匹配门店地址</div></div>
+                <span class="pill green">完成</span>
+              </div>
+              <div class="node done">
+                <div class="node-index">3</div>
+                <div><div class="node-title">录像/证据采集</div><div class="node-sub">本地 AI 评分 91</div></div>
+                <span class="pill green">完成</span>
+              </div>
+              <div class="node current">
+                <div class="node-index">4</div>
+                <div><div class="node-title">需求方验收</div><div class="node-sub">等待后台确认或返工</div></div>
+                <span class="pill blue">当前</span>
+              </div>
+              <div class="node disabled">
+                <div class="node-index">5</div>
+                <div><div class="node-title">平台专家质检</div><div class="node-sub">低风险任务，接单前标灰</div></div>
+                <span class="pill">标灰</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <h3 class="section-title">证据包</h3>
+            <div class="evidence-grid">
+              <div class="evidence-thumb">门头</div>
+              <div class="evidence-thumb">路由器</div>
+              <div class="evidence-thumb">测速</div>
+            </div>
+            <div class="task-meta">
+              <span class="pill green">AI 预检通过</span>
+              <span class="pill">完整度 91</span>
+              <span class="pill">无风控标记</span>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <h3 class="section-title">处理动作</h3>
+            <div class="button-row">
+              <button class="primary" id="approveBtn" data-icon="check-circle">验收通过</button>
+              <button class="ghost" id="reworkBtn" data-icon="rotate-ccw">要求返工</button>
+              <button class="danger" id="riskBtn" data-icon="shield-alert">风控冻结</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    const taskData = {
+      router: {
+        title: "门店路由器网络检查",
+        sub: "任务 ID TM-20260529-001，等待后台验收",
+        status: "待验收",
+        badge: "blue",
+        workflow: [
+          ["接单确认", "流程和报酬已锁定", "完成", "done"],
+          ["到场确认", "GPS 匹配门店地址", "完成", "done"],
+          ["录像/证据采集", "本地 AI 评分 91", "完成", "done"],
+          ["需求方验收", "等待后台确认或返工", "当前", "current"],
+          ["平台专家质检", "低风险任务，接单前标灰", "标灰", "disabled"]
+        ]
+      },
+      elder: {
+        title: "社区老人手机使用辅导",
+        sub: "任务 ID TM-20260529-018，公益新手任务执行中",
+        status: "执行中",
+        badge: "green",
+        workflow: [
+          ["接单确认", "公益补贴和声望规则已确认", "完成", "done"],
+          ["执行前准备", "AI 已生成沟通话术", "完成", "done"],
+          ["到场确认", "社区服务站定位通过", "完成", "done"],
+          ["标准执行", "正在辅导手机支付和视频通话", "当前", "current"],
+          ["高风险录像", "本任务无需录像，已标灰", "标灰", "disabled"]
+        ]
+      },
+      data: {
+        title: "企业资料整理与表格清洗",
+        sub: "任务 ID TM-20260529-026，无人接单，等待 AI 接管",
+        status: "AI 接管",
+        badge: "red",
+        workflow: [
+          ["需求录入", "企业上传 300 条门店资料", "完成", "done"],
+          ["AI 需求理解", "识别为线上资料清洗任务", "完成", "done"],
+          ["匹配与候选人推送", "候选人全部拒绝", "阻塞", "current"],
+          ["AI 接管", "建议拆成 3 个子单并提高报酬", "当前", "current"],
+          ["到场确认", "线上任务，已标灰", "标灰", "disabled"]
+        ]
+      }
+    };
+
+    function renderWorkflow(items) {
+      return items.map((item, index) => `
+        <div class="node ${item[3]}">
+          <div class="node-index">${index + 1}</div>
+          <div><div class="node-title">${item[0]}</div><div class="node-sub">${item[1]}</div></div>
+          <span class="pill ${item[3] === "done" ? "green" : item[3] === "current" ? "blue" : ""}">${item[2]}</span>
+        </div>
+      `).join("");
+    }
+
+    function selectTask(name) {
+      const task = taskData[name];
+      document.getElementById("taskTitle").textContent = task.title;
+      document.getElementById("taskSub").textContent = task.sub;
+      const badge = document.getElementById("taskStatus");
+      badge.className = `pill ${task.badge}`;
+      badge.textContent = task.status;
+      document.getElementById("adminWorkflow").innerHTML = renderWorkflow(task.workflow);
+      document.querySelectorAll("tbody tr").forEach(row => row.classList.toggle("selected", row.dataset.task === name));
+      if (window.lucide) lucide.createIcons();
+    }
+
+    document.addEventListener("click", event => {
+      const taskButton = event.target.closest("[data-task]");
+      if (taskButton && taskButton.dataset.task) selectTask(taskButton.dataset.task);
+
+      const nav = event.target.closest(".nav-item");
+      if (nav) {
+        document.querySelectorAll(".nav-item").forEach(item => item.classList.remove("active"));
+        nav.classList.add("active");
+      }
+    });
+
+    document.getElementById("approveBtn").addEventListener("click", () => {
+      document.getElementById("taskStatus").className = "pill green";
+      document.getElementById("taskStatus").textContent = "已完成";
+      document.getElementById("taskSub").textContent = "验收通过，已触发结算和成长账本";
+    });
+
+    document.getElementById("reworkBtn").addEventListener("click", () => {
+      document.getElementById("taskStatus").className = "pill amber";
+      document.getElementById("taskStatus").textContent = "返工";
+      document.getElementById("taskSub").textContent = "已生成返工节点，等待服务者补充证据";
+    });
+
+    document.getElementById("riskBtn").addEventListener("click", () => {
+      document.getElementById("taskStatus").className = "pill red";
+      document.getElementById("taskStatus").textContent = "风控冻结";
+      document.getElementById("taskSub").textContent = "任务冻结，结算和成长暂缓";
+    });
+
+    function renderIcons() {
+      document.querySelectorAll("[data-icon]").forEach(el => {
+        const name = el.dataset.icon;
+        if (!el.querySelector("i[data-lucide]")) {
+          el.insertAdjacentHTML("afterbegin", `<i data-lucide="${name}"></i>`);
+        }
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    renderIcons();
+  </script>
+</body>
+</html>

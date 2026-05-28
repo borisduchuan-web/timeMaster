@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>timeMaster App Prototype</title>
+  <link rel="stylesheet" href="./prototype.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="phone-status">
+          <span>09:41</span>
+          <span>5G  82%</span>
+        </div>
+
+        <header class="app-top">
+          <div class="app-title-row">
+            <div class="app-title">
+              <h1 id="screenTitle">工作台</h1>
+              <p id="screenSubtitle">今日有 6 个任务适合你</p>
+            </div>
+            <div class="avatar">杜</div>
+          </div>
+        </header>
+
+        <main class="app-main">
+          <section class="screen active" data-screen="home">
+            <div class="summary-grid">
+              <div class="metric">
+                <div class="metric-label">今日预估收入</div>
+                <div class="metric-value">¥286</div>
+                <div class="metric-hint">平台抽成 0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">综合等级</div>
+                <div class="metric-value">Lv2</div>
+                <div class="metric-hint">距 Lv3 还差 42 经验</div>
+              </div>
+            </div>
+
+            <div class="panel ai-strip">
+              <h2 class="panel-title">AI 接单建议</h2>
+              <p class="muted">你最近维修类任务通过率 96%，今天优先推荐低风险上门维修和社区公益任务。</p>
+              <div class="button-row">
+                <button class="secondary" data-go="tasks" data-icon="list-check">看推荐任务</button>
+                <button class="ghost" data-go="growth" data-icon="route">成长路径</button>
+              </div>
+            </div>
+
+            <h2 class="section-title">推荐任务</h2>
+            <article class="task-card">
+              <div class="row">
+                <h3>社区老人手机使用辅导</h3>
+                <span class="pill green">公益声望 +12</span>
+              </div>
+              <div class="task-meta">
+                <span class="pill">1.2km</span>
+                <span class="pill">约 45 分钟</span>
+                <span class="pill blue">新手友好</span>
+                <span class="pill">节点 13/22</span>
+              </div>
+              <div class="button-row">
+                <button class="ghost" data-go="detail" data-icon="file-search">流程详情</button>
+                <button class="primary" data-go="detail" data-icon="check-circle">去接单</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="row">
+                <h3>门店路由器网络检查</h3>
+                <span class="pill blue">¥120 到账</span>
+              </div>
+              <div class="task-meta">
+                <span class="pill">3.8km</span>
+                <span class="pill amber">需录像</span>
+                <span class="pill green">适配度 92</span>
+                <span class="pill">节点 18/22</span>
+              </div>
+              <div class="button-row">
+                <button class="ghost" data-go="detail" data-icon="file-search">流程详情</button>
+                <button class="primary" data-go="detail" data-icon="check-circle">去接单</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="screen" data-screen="tasks">
+            <div class="segment" data-segment="taskFilter">
+              <button class="active">推荐</button>
+              <button>新手</button>
+              <button>公益</button>
+              <button>附近</button>
+            </div>
+
+            <article class="task-card">
+              <div class="row">
+                <h3>门店路由器网络检查</h3>
+                <span class="pill blue">¥120</span>
+              </div>
+              <p class="muted">AI 判断你有电脑维护和沟通经验，风险等级低，可直接接单。</p>
+              <div class="task-meta">
+                <span class="pill green">适配度 92</span>
+                <span class="pill">网络维护 S2</span>
+                <span class="pill amber">录像节点启用</span>
+              </div>
+              <div class="button-row">
+                <button class="secondary" data-go="detail" data-icon="workflow">查看流程</button>
+                <button class="primary" data-go="detail" data-icon="handshake">接单</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="row">
+                <h3>街区无障碍设施巡检</h3>
+                <span class="pill green">声望 +10</span>
+              </div>
+              <p class="muted">公益任务，适合积累社区服务声望，成长值每日有上限。</p>
+              <div class="task-meta">
+                <span class="pill">2.4km</span>
+                <span class="pill blue">新手任务</span>
+                <span class="pill">节点 14/22</span>
+              </div>
+              <div class="button-row">
+                <button class="secondary" data-go="detail" data-icon="workflow">查看流程</button>
+                <button class="primary" data-go="detail" data-icon="handshake">接单</button>
+              </div>
+            </article>
+
+            <article class="task-card">
+              <div class="row">
+                <h3>企业资料整理与表格清洗</h3>
+                <span class="pill blue">¥80</span>
+              </div>
+              <p class="muted">线上任务，到场和录像节点自动标灰，可由 AI 辅助生成初稿。</p>
+              <div class="task-meta">
+                <span class="pill">线上</span>
+                <span class="pill">办公技能 S1</span>
+                <span class="pill">节点 12/22</span>
+              </div>
+              <div class="button-row">
+                <button class="secondary" data-go="detail" data-icon="workflow">查看流程</button>
+                <button class="primary" data-go="detail" data-icon="handshake">接单</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="screen" data-screen="detail">
+            <div class="panel">
+              <div class="row">
+                <div>
+                  <h2 class="panel-title">门店路由器网络检查</h2>
+                  <p class="muted">报酬 ¥120，用户到账 ¥120，平台抽成 0</p>
+                </div>
+                <span class="pill green">适配度 92</span>
+              </div>
+              <div class="task-meta">
+                <span class="pill">3.8km</span>
+                <span class="pill">预计 50 分钟</span>
+                <span class="pill amber">关键节点录像</span>
+                <span class="pill">网络维护 S2</span>
+              </div>
+            </div>
+
+            <h2 class="section-title">标准流程节点</h2>
+            <div class="workflow">
+              <div class="node done">
+                <div class="node-index">1</div>
+                <div><div class="node-title">AI 需求理解</div><div class="node-sub">已识别为线下标准服务任务</div></div>
+                <span class="pill green">完成</span>
+              </div>
+              <div class="node done">
+                <div class="node-index">2</div>
+                <div><div class="node-title">合规与风险分级</div><div class="node-sub">低风险，需关键证据</div></div>
+                <span class="pill green">完成</span>
+              </div>
+              <div class="node current">
+                <div class="node-index">3</div>
+                <div><div class="node-title">接单确认</div><div class="node-sub">锁定报酬、流程、证据要求</div></div>
+                <span class="pill blue">当前</span>
+              </div>
+              <div class="node">
+                <div class="node-index">4</div>
+                <div><div class="node-title">到场/上线确认</div><div class="node-sub">GPS + 门店照片</div></div>
+                <span class="pill">待执行</span>
+              </div>
+              <div class="node">
+                <div class="node-index">5</div>
+                <div><div class="node-title">录像/证据采集启动</div><div class="node-sub">本地 AI 检测画面和时长</div></div>
+                <span class="pill amber">需录像</span>
+              </div>
+              <div class="node disabled">
+                <div class="node-index">6</div>
+                <div><div class="node-title">平台专家质检</div><div class="node-sub">本任务低风险，接单前已标灰</div></div>
+                <span class="pill">标灰</span>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="ghost" data-go="tasks" data-icon="arrow-left">返回大厅</button>
+              <button class="primary" data-go="execute" data-icon="lock-keyhole">确认接单</button>
+            </div>
+          </section>
+
+          <section class="screen" data-screen="execute">
+            <div class="panel">
+              <div class="row">
+                <div>
+                  <h2 class="panel-title">当前节点：录像/证据采集</h2>
+                  <p class="muted">请拍摄路由器、网线连接和测速结果。</p>
+                </div>
+                <span class="pill blue">执行中</span>
+              </div>
+            </div>
+
+            <div class="evidence-box">
+              <div class="score-ring" id="scoreRing">83</div>
+              <h2 class="panel-title">本地 AI 预检</h2>
+              <p class="muted" id="scoreText">画面清晰，时长达标，缺少测速结果关键帧。</p>
+              <div class="button-row">
+                <button class="ghost" id="captureBtn" data-icon="camera">拍摄证据</button>
+                <button class="secondary" id="videoBtn" data-icon="video">启动录像</button>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2 class="panel-title">证据包</h2>
+              <div class="workflow" id="evidenceList">
+                <div class="node done">
+                  <div class="node-index">1</div>
+                  <div><div class="node-title">门店门头照片</div><div class="node-sub">GPS 已匹配，时间戳 09:48</div></div>
+                  <span class="pill green">通过</span>
+                </div>
+                <div class="node current">
+                  <div class="node-index">2</div>
+                  <div><div class="node-title">路由器检查视频</div><div class="node-sub">本地 AI 评分 83</div></div>
+                  <span class="pill blue">预检</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="ghost" data-go="detail" data-icon="arrow-left">流程详情</button>
+              <button class="primary" data-go="growth" data-icon="send">提交验收</button>
+            </div>
+          </section>
+
+          <section class="screen" data-screen="growth">
+            <div class="summary-grid">
+              <div class="metric">
+                <div class="metric-label">声望分</div>
+                <div class="metric-value">642</div>
+                <div class="metric-hint">本次预计 +8</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">知识库</div>
+                <div class="metric-value">18</div>
+                <div class="metric-hint">新增 1 条复盘</div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2 class="panel-title">技能熟练度</h2>
+              <div class="skill-row">
+                <div class="row"><strong>网络维护</strong><span>S2 56/100</span></div>
+                <div class="bar"><span style="width:56%"></span></div>
+              </div>
+              <div class="skill-row">
+                <div class="row"><strong>服务沟通</strong><span>S3 68/100</span></div>
+                <div class="bar"><span style="width:68%"></span></div>
+              </div>
+              <div class="skill-row">
+                <div class="row"><strong>证据采集</strong><span>S2 49/100</span></div>
+                <div class="bar"><span style="width:49%"></span></div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2 class="panel-title">个人成长路径</h2>
+              <div class="workflow">
+                <div class="node done">
+                  <div class="node-index">1</div>
+                  <div><div class="node-title">完成 3 个低风险网络任务</div><div class="node-sub">已完成 2 个</div></div>
+                  <span class="pill green">进行中</span>
+                </div>
+                <div class="node">
+                  <div class="node-index">2</div>
+                  <div><div class="node-title">通过一次平台质检</div><div class="node-sub">解锁高价值门店维护任务</div></div>
+                  <span class="pill">待解锁</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2 class="panel-title">知识库沉淀</h2>
+              <div class="knowledge-list">
+                <div class="knowledge-item"><strong>路由器巡检 SOP</strong><p class="muted">新增关键帧要求、测速截图、客户确认话术。</p></div>
+                <div class="knowledge-item"><strong>常见问题</strong><p class="muted">弱信号场景先检查摆放位置，再检查拨号和线路。</p></div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <nav class="bottom-tabs">
+          <button class="tab-button active" data-go="home" data-title="工作台" data-subtitle="今日有 6 个任务适合你" data-icon="layout-dashboard"><span>工作台</span></button>
+          <button class="tab-button" data-go="tasks" data-title="任务大厅" data-subtitle="按能力和声望推荐任务" data-icon="list-check"><span>任务</span></button>
+          <button class="tab-button" data-go="execute" data-title="任务执行" data-subtitle="流程节点和证据采集" data-icon="video"><span>执行</span></button>
+          <button class="tab-button" data-go="growth" data-title="成长中心" data-subtitle="等级、声望、技能和知识库" data-icon="trending-up"><span>成长</span></button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    const titles = {
+      home: ["工作台", "今日有 6 个任务适合你"],
+      tasks: ["任务大厅", "按能力和声望推荐任务"],
+      detail: ["任务详情", "接单前锁定流程和证据要求"],
+      execute: ["任务执行", "按节点采集证据并提交验收"],
+      growth: ["成长中心", "等级、声望、技能和知识库"]
+    };
+
+    function setScreen(name) {
+      document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.toggle("active", screen.dataset.screen === name);
+      });
+      document.querySelectorAll(".tab-button").forEach(tab => {
+        tab.classList.toggle("active", tab.dataset.go === name);
+      });
+      const copy = titles[name] || titles.home;
+      document.getElementById("screenTitle").textContent = copy[0];
+      document.getElementById("screenSubtitle").textContent = copy[1];
+      document.querySelector(".app-main").scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.addEventListener("click", event => {
+      const action = event.target.closest("[data-go]");
+      if (action) setScreen(action.dataset.go);
+    });
+
+    document.getElementById("captureBtn").addEventListener("click", () => {
+      document.getElementById("scoreRing").textContent = "91";
+      document.getElementById("scoreText").textContent = "已补充测速结果关键帧，证据完整度提升。";
+      document.getElementById("evidenceList").insertAdjacentHTML("beforeend", `
+        <div class="node done">
+          <div class="node-index">3</div>
+          <div><div class="node-title">测速结果截图</div><div class="node-sub">上传成功，本地 AI 评分 91</div></div>
+          <span class="pill green">通过</span>
+        </div>
+      `);
+      if (window.lucide) lucide.createIcons();
+    });
+
+    document.getElementById("videoBtn").addEventListener("click", () => {
+      document.getElementById("scoreText").textContent = "录像会话已启动，系统将抽取关键帧并生成证据包。";
+    });
+
+    document.querySelectorAll("[data-segment] button").forEach(button => {
+      button.addEventListener("click", () => {
+        button.parentElement.querySelectorAll("button").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+      });
+    });
+
+    function renderIcons() {
+      document.querySelectorAll("[data-icon]").forEach(el => {
+        const name = el.dataset.icon;
+        if (!el.querySelector("i[data-lucide]")) {
+          el.insertAdjacentHTML("afterbegin", `<i data-lucide="${name}"></i>`);
+        }
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    renderIcons();
+  </script>
+</body>
+</html>
+
