@@ -1,0 +1,35 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Java / Spring Boot
+target/
+build/
+.gradle/
+out/
+
+# Android
+local.properties
+captures/
+*.apk
+*.aab
+
+# Node / web admin
+node_modules/
+dist/
+.next/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
